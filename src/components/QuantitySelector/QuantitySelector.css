@@ -1,0 +1,25 @@
+.quantitySelector {
+    border: 1px solid #a3a3a3;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.button {
+    padding: .5rem;
+    margin: .5rem;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .4rem;
+    border: none;
+}
+
+.plus {
+    color: white;
+    background-color: #5f65ff;
+}
