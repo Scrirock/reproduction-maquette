@@ -1,4 +1,5 @@
 import './TestEvent.css';
+import {useState} from "react";
 
 export function TestEvent() {
 
@@ -13,20 +14,21 @@ export function TestEvent() {
     function handleCopy(e) {
         const start = e.target.selectionStart;
         const stop = e.target.selectionEnd;
-        e.target.nextElementSibling.value = e.target.value.slice(start, stop)
+        setTestPaste(testCopy.slice(start, stop));
     }
 
-    function handlePaste(e) {
-        e.target.nextElementSibling.value = e.clipboardData.getData('text/plain')
-    }
+    const [testPaste, setTestPaste] = useState('');
+    const [testCopy, setTestCopy] = useState('Hello John');
 
     return (
         <>
             <button onClick={handleButtonClick}>click</button>
             <button onDoubleClick={handleButtonDoubleClick}>double click</button>
-            <input type="text" name="test-copy" onCopy={handleCopy} />
-            <input type="text" name="test-paste" onPaste={handlePaste} />
-            <textarea name="target" id="target" cols="30" rows="10" contentEditable={false} />
+            <input type="text" name="test-copy" value={testCopy} onCopy={handleCopy} onChange={e => setTestCopy(e.target.value)} />
+            <input type="text" name="test-paste" value={testPaste} readOnly />
+            <div className="eventMessage">
+                La valeur de test-paste <span>{testPaste}</span>
+            </div>
         </>
     )
 }
