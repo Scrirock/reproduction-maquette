@@ -1,0 +1,11 @@
+{
+    "name": "scri/shop",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Scri\\Shop\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
