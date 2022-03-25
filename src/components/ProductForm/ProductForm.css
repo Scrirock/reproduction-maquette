@@ -1,0 +1,16 @@
+form {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 28rem;
+    margin: 3rem;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+form div {
+    margin: .8rem;
+}
+
+input {
+    width: 13rem;
+}

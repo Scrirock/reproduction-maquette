@@ -1,15 +1,22 @@
 import './App.css';
+
+import {useState} from "react";
+
 import {Header} from "../Header/Header";
 import {Cart} from "../Cart/Cart";
 import {Categories} from "../Categories/Categories";
 import {ProductsList} from "../ProductsList/ProductsList";
 import {TestEvent} from "../TestEvent/TestEvent";
+import {ProductForm} from "../ProductForm/ProductForm";
+import {CategoryForm} from "../CategoryForm/CategoryForm";
+import {InscriptionForm} from "../InscriptionForm/InscriptionForm";
+import {ConnexionForm} from "../ConnexionForm/ConnexionForm";
+
 import img1 from "../../assets/images/image1.png";
 import img2 from "../../assets/images/image2.png";
 import img3 from "../../assets/images/image3.png";
 import img4 from "../../assets/images/image4.png";
 import img5 from "../../assets/images/image5.png";
-import {useState} from "react";
 
 export default function App() {
 
@@ -32,15 +39,21 @@ export default function App() {
 
   return (
       <>
-        <Header />
-        <div className="container">
-            <Cart products={products} setIsProductUpdated={setIsProductUpdated} />
-            <div style={{margin: '2rem'}}>
-                <Categories setCategory={setCategory} />
-                <ProductsList category={category} products={products} setIsProductUpdated={setIsProductUpdated} />
-            </div>
-        </div>
-        <TestEvent />
+        {/*<Header />*/}
+        {/*<div className="container">*/}
+        {/*    <Cart products={products} setIsProductUpdated={setIsProductUpdated} />*/}
+        {/*    <div style={{margin: '2rem'}}>*/}
+        {/*        <Categories setCategory={setCategory} />*/}
+        {/*        <ProductsList category={category} products={products} setIsProductUpdated={setIsProductUpdated} />*/}
+        {/*    </div>*/}
+        {/*</div>*/}
+        <ProductForm />
+        <p>----------------</p>
+        <CategoryForm />
+        <p>----------------</p>
+        <InscriptionForm />
+        <p>----------------</p>
+        <ConnexionForm />
       </>
   );
 }

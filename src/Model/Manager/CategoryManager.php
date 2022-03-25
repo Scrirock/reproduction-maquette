@@ -12,17 +12,22 @@ class CategoryManager {
 
     public function getAllCategory() {
         $request = DB::getRepresentative()->prepare('SELECT * FROM category');
+
         if ($request->execute()) {
             return json_encode($request->fetchAll());
         }
+        else return false;
     }
 
     public function getOneCategory($id) {
         $request = DB::getRepresentative()->prepare('SELECT * FROM category WHERE id = :id');
+
         $request->bindParam(':id', $id);
+
         if ($request->execute()) {
             return json_encode($request->fetch());
         }
+        else return false;
     }
 
     public function addCategory(Category $category) {

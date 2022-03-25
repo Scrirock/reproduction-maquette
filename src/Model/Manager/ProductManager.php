@@ -12,17 +12,22 @@ class ProductManager {
 
     public function getAllProduct() {
         $request = DB::getRepresentative()->prepare('SELECT * FROM product');
+
         if ($request->execute()) {
             return json_encode($request->fetchAll());
         }
+        else return false;
     }
 
     public function getOneProduct(int $id) {
         $request = DB::getRepresentative()->prepare('SELECT * FROM product WHERE id = :id');
+
         $request->bindParam(':id', $id);
+
         if ($request->execute()) {
             return json_encode($request->fetch());
         }
+        else return false;
     }
 
     public function addProduct(Product $product) {
@@ -33,7 +38,7 @@ class ProductManager {
         ');
 
         $category = $product->getCategory();
-        $cart = $product->getCart();
+        $cart = 0;
         $name = $product->getName();
         $description = $product->getDescription();
         if (!$description) $description = "Pas de description pour ce produit";
